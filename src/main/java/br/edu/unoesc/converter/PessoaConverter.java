@@ -13,14 +13,15 @@ public class PessoaConverter {
 		Map<String, Object> mapPessoa = new HashMap<String, Object>();
 		mapPessoa.put("Nome", pessoa.getNome());
 		mapPessoa.put("Cpf", pessoa.getCpf());
-		mapPessoa.put("fone", pessoa.getFone());
-
+		mapPessoa.put("Fone", pessoa.getFone());
+		
+		
 		return mapPessoa;
 	}
 
 	public Pessoa converterToPessoa(DBObject dbo) {
 		Pessoa pessoa = new Pessoa();
-
+		pessoa.setId(dbo.get("_id").toString());
 		pessoa.setNome((String) dbo.get("Nome"));
 		pessoa.setCpf((String) dbo.get("Cpf"));
 		pessoa.setFone((String) dbo.get("Fone"));

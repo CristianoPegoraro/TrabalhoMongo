@@ -16,8 +16,8 @@ public class PessoaTest {
 
 	public static void main(String[] args) 
 	{
-		 save();
-	     // update();
+		//save();
+	   update();
 	    // delete();
 
 	}
@@ -39,21 +39,24 @@ public class PessoaTest {
 	        for (Pessoa pessoa : pessoas) {
 	            System.out.println(pessoa.toString());
 	        }
-    }
-/*
-    private static void update() 
-    {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("firstName", "Anita");
-        Pessoa query = new PessoaDao().findPessoa(map);
+	    }
 
-        Fone fone = new Fone("048-3222.2522", "048-9225.4464");
-        Pessoa pessoa = new Pessoa("Anita", "Pires de Almeida", 30, fone);
-        new PessoaDao().update(query, pessoa);
 
-        Pessoa newPessoa = new PessoaDao().findPessoa(map);
-        System.out.printf("Old:> " + query + "\nNew:> " + newPessoa.toString());
-    }
+
+	    private static void update() 
+	    {
+	        Map<String, Object> map = new HashMap<String, Object>();
+	        map.put("Nome", "Anita");
+	        Pessoa query = new PessoaDao().findPessoa(map);
+
+	        
+	        Pessoa pessoa = new Pessoa("Anita Teste", "35412", "564897");
+	        new PessoaDao().update(query, pessoa);
+
+	        Pessoa newPessoa = new PessoaDao().findPessoa(map);
+	        System.out.printf("Old:> " + query + "\nNew:> " + newPessoa.toString());
+	    }
+
 
     private static void delete() 
     {
@@ -71,5 +74,5 @@ public class PessoaTest {
             System.out.println(pessoa.toString());
         }
     } 
-	*/
+	
 }
