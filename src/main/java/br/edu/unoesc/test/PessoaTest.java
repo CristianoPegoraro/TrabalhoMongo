@@ -17,8 +17,8 @@ public class PessoaTest {
 	public static void main(String[] args) 
 	{
 		//save();
-	   update();
-	    // delete();
+	  // update();
+	   //  delete();
 
 	}
 
@@ -46,11 +46,11 @@ public class PessoaTest {
 	    private static void update() 
 	    {
 	        Map<String, Object> map = new HashMap<String, Object>();
-	        map.put("Nome", "Anita");
+	        map.put("nome", "Anita Teste");
 	        Pessoa query = new PessoaDao().findPessoa(map);
 
 	        
-	        Pessoa pessoa = new Pessoa("Anita Teste", "35412", "564897");
+	        Pessoa pessoa = new Pessoa("Anita Gorda", "11111111", "564897");
 	        new PessoaDao().update(query, pessoa);
 
 	        Pessoa newPessoa = new PessoaDao().findPessoa(map);
@@ -58,10 +58,10 @@ public class PessoaTest {
 	    }
 
 
-    private static void delete() 
+   private static void delete() 
     {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("firstName", "Anita");
+        map.put("nome", "Anita Gorda");
         List<Pessoa> query = new PessoaDao().findPessoas(map);
         
         

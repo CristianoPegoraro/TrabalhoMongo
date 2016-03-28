@@ -11,9 +11,9 @@ public class PessoaConverter {
 
 	public Map<String, Object> converterToMap(Pessoa pessoa) {
 		Map<String, Object> mapPessoa = new HashMap<String, Object>();
-		mapPessoa.put("Nome", pessoa.getNome());
-		mapPessoa.put("Cpf", pessoa.getCpf());
-		mapPessoa.put("Fone", pessoa.getFone());
+		mapPessoa.put("nome", pessoa.getNome());
+		mapPessoa.put("cpf", pessoa.getCpf());
+		mapPessoa.put("fone", pessoa.getFone());
 		
 		
 		return mapPessoa;
@@ -22,9 +22,9 @@ public class PessoaConverter {
 	public Pessoa converterToPessoa(DBObject dbo) {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setId(dbo.get("_id").toString());
-		pessoa.setNome((String) dbo.get("Nome"));
-		pessoa.setCpf((String) dbo.get("Cpf"));
-		pessoa.setFone((String) dbo.get("Fone"));
+		pessoa.setNome((String) dbo.get("nome"));
+		pessoa.setCpf((String) dbo.get("cpf"));
+		pessoa.setFone((String) dbo.get("fone"));
 
 		return pessoa;
 	}

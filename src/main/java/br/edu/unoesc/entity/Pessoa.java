@@ -1,6 +1,8 @@
 package br.edu.unoesc.entity;
 
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString(of = { "nome", "cpf", "fone" })
 
-public class Pessoa {
+public class Pessoa    {
 
 	private String id;
 	private String nome;
