@@ -1,12 +1,10 @@
-package br.edu.unoesc.test;
+/*package br.edu.unoesc.test;
 
 import java.util.*;
 
-
-
-
+import br.edu.unoesc.dao.ConsultaDao;
 import br.edu.unoesc.dao.PessoaDao;
-
+import br.edu.unoesc.entity.Consulta;
 import br.edu.unoesc.entity.Pessoa;
 
 
@@ -16,7 +14,7 @@ public class PessoaTest {
 
 	public static void main(String[] args) 
 	{
-		//save();
+		save();
 	  // update();
 	   //  delete();
 
@@ -24,7 +22,7 @@ public class PessoaTest {
 
 	    private static void save() 
 	    {
-	        
+	    	
 	    	Pessoa p1 = new Pessoa( "Rodrigo", "4568795-95","33536548");
 	        new PessoaDao().save(p1);
 	
@@ -40,7 +38,9 @@ public class PessoaTest {
 	            System.out.println(pessoa.toString());
 	        }
 	    }
-
+	   
+	
+	
 
 
 	    private static void update() 
@@ -76,3 +76,4 @@ public class PessoaTest {
     } 
 	
 }
+*/

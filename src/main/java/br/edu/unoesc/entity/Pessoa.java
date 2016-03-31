@@ -1,7 +1,7 @@
 package br.edu.unoesc.entity;
 
 
-import java.io.Serializable;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(of = { "nome", "cpf", "fone" })
+@ToString(of = { "nome", "cpf", "fone", "endereco", "bairro", "cidade"} )
 
 public class Pessoa    {
 
@@ -21,12 +21,23 @@ public class Pessoa    {
 	private String nome;
 	private String cpf;
 	private String fone;
+	private String endereco;
+	private String bairro;
+	private Cidade cidade;
 
-	public Pessoa(String nome, String cpf, String fone) {
+	public Pessoa(String nome, String cpf, String fone ,String endereco, String bairro, Cidade cidade) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.fone = fone;
+		this.endereco = endereco;		
+		this.bairro = bairro;
+		this.cidade = cidade;
 
 	}
+	
+
+    
+
+
 
 }
