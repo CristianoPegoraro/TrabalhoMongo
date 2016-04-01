@@ -306,7 +306,7 @@ public class Principal extends JFrame {
 		contentPane.add(separator_1);
 		
 		JButton btnPesquisa = new JButton("Pesquisar");
-		btnPesquisa.setBounds(543, 431, 89, 23);
+		btnPesquisa.setBounds(521, 431, 111, 23);
 		contentPane.add(btnPesquisa);
 
 	}
