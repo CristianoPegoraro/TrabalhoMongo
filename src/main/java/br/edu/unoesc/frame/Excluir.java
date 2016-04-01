@@ -6,16 +6,32 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+
+
+import br.edu.unoesc.dao.OrdemDao;
+import br.edu.unoesc.entity.Ordem;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Excluir extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField jtfexcluir;
 
@@ -59,7 +75,7 @@ public class Excluir extends JFrame {
 		jtfexcluir = new JTextField();
 		jtfexcluir.setToolTipText("Insira o nome do cliente para excluir");
 		jtfexcluir.addMouseListener(new MouseAdapter() {
-			@Override
+			
 			public void mouseClicked(MouseEvent arg0) {
 				
 			}
@@ -69,6 +85,28 @@ public class Excluir extends JFrame {
 		jtfexcluir.setColumns(10);
 		
 		JButton btnExcluirExcluir = new JButton("Excluir");
+		btnExcluirExcluir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
+		btnExcluirExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Map<String, Object> map = new HashMap<String, Object>();
+		        map.get((jtfexcluir.getText()));
+		        
+		        List<Ordem> query = new OrdemDao().findOrdems(map);
+		        
+		        
+		        for (Ordem ordem : query) {
+		            new OrdemDao().delete(ordem);
+		        }
+
+				
+				
+			}
+		});
 		btnExcluirExcluir.setBounds(175, 160, 89, 23);
 		contentPane.add(btnExcluirExcluir);
 	}

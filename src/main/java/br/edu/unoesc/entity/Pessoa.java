@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(of = { "nome", "cpf", "fone", "endereco", "bairro", "cidade"} )
+@ToString(of = { "nome", "cpf", "fone", "endereco", "bairro", } )
 
 public class Pessoa    {
 
@@ -23,7 +23,7 @@ public class Pessoa    {
 	private String fone;
 	private String endereco;
 	private String bairro;
-	private Cidade cidade;
+	
 
 	public Pessoa(String nome, String cpf, String fone ,String endereco, String bairro, Cidade cidade) {
 		this.nome = nome;
@@ -31,7 +31,7 @@ public class Pessoa    {
 		this.fone = fone;
 		this.endereco = endereco;		
 		this.bairro = bairro;
-		this.cidade = cidade;
+		
 
 	}
 	

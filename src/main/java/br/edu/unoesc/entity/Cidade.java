@@ -4,6 +4,7 @@ package br.edu.unoesc.entity;
 
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-/*@AllArgsConstructor*/
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString(of = { "nomeCidade", "nomeUF" })
 
@@ -22,12 +23,12 @@ public class Cidade    {
 	private String nomeUF;
 	
 
- public Cidade(String nomeCidade, String nomeUF) {
+/* public Cidade(String nomeCidade, String nomeUF) {
 		this.nomeCidade = nomeCidade;
 		this.nomeUF = nomeUF;
 		
 
-	}
+	}*/
  
 /* public String toString() {
      return "Cidade{" +

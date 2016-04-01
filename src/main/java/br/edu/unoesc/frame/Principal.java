@@ -10,11 +10,14 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 
+
 import com.mongodb.DBObject;
 
 import br.edu.unoesc.converter.CidadeConverter;
-import br.edu.unoesc.dao.PessoaDao;
+import br.edu.unoesc.dao.OrdemDao;
 import br.edu.unoesc.entity.Cidade;
+import br.edu.unoesc.entity.Funcionario;
+import br.edu.unoesc.entity.Ordem;
 import br.edu.unoesc.entity.Pessoa;
 
 import javax.swing.AbstractListModel;
@@ -44,9 +47,13 @@ import java.awt.event.MouseEvent;
 import javax.swing.JSeparator;
 import java.awt.Font;
 
-public class OrdemServico extends JFrame {
+public class Principal extends JFrame {
 
-	private Pessoa pessoa;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private JTextField jtfNome;
 	private JTextField JtfCpf;
@@ -68,7 +75,7 @@ public class OrdemServico extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OrdemServico frame = new OrdemServico();
+					Principal frame = new Principal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -80,7 +87,7 @@ public class OrdemServico extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public OrdemServico() {
+	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 662, 504);
 		contentPane = new JPanel();
@@ -120,24 +127,41 @@ public class OrdemServico extends JFrame {
 		btnCadastroSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Cidade cidade = new Cidade();
-
-				cidade.setNomeCidade(jtfCidade.getText());
-				cidade.setNomeUF(jtfUF.getText());
-
+			    
+				
 				Pessoa pessoa = new Pessoa();
 				pessoa.setNome(jtfNome.getText());
 				pessoa.setCpf(JtfCpf.getText());
 				pessoa.setFone(JtfFone.getText());
 				pessoa.setEndereco(jtfEndereco.getText());
-				pessoa.setCidade(cidade);
+				pessoa.setBairro(jtfBairro.getText());
+				
+				Cidade cidade = new Cidade();
 
-				new PessoaDao().save(pessoa);
+				cidade.setNomeCidade(jtfCidade.getText());
+				cidade.setNomeUF(jtfUF.getText());
+				
+				Funcionario funcionario = new Funcionario();
+				funcionario.setNomeFuncionario(jtfFuncionario.getText());
+				funcionario.setSetor(jtfSetor.getText());
+				funcionario.setCargo(jtfCargo.getText());
+								
+				Ordem ordem = new Ordem();
+				ordem.setPessoa(pessoa);
+				ordem.setCidade(cidade);
+				ordem.setServico(jtfServico.getText());
+				ordem.setObservacoes(jtfObservacoes.getText());
+				
+				
+				
+						
 
-				List<Pessoa> pessoas = new PessoaDao().findPessoas();
-				for (Pessoa pessoa1: pessoas) {
-					System.out.println(pessoa1.toString());
-				}
+				new OrdemDao().save(ordem);
+				
+				List<Ordem> ordems = new OrdemDao().findOrdems();
+		        for (Ordem ordem1 : ordems) {
+		            System.out.println(ordem1.toString());
+		        }
 
 			}
 		});
@@ -148,16 +172,16 @@ public class OrdemServico extends JFrame {
 		JButton btnCadastroAlterar = new JButton("Alterar");
 		btnCadastroAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Map<String, Object> map = new HashMap<String, Object>();
+			/*	Map<String, Object> map = new HashMap<String, Object>();
 				map.get(jtfNome.getText());
-				Pessoa query = new PessoaDao().findPessoa(map);
+				Ordem query = new OrdemDao().findOrdem(map);
 
-				Pessoa pessoa = new Pessoa();
-				pessoa.setNome(jtfNome.getText());
-				pessoa.setCpf(JtfCpf.getText());
-				pessoa.setFone(JtfFone.getText());
-				new PessoaDao().update(query, pessoa);
-
+				Ordem ordem = new Ordem();
+				ordem.setNome(jtfNome.getText());
+				ordem.setCpf(JtfCpf.getText());
+				ordem.setFone(JtfFone.getText());
+				new OrdemDao().update(query, ordem);
+*/
 			}
 		});
 		btnCadastroAlterar.setBounds(208, 431, 89, 23);

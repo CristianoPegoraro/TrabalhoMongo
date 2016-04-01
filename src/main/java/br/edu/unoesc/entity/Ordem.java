@@ -13,21 +13,23 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(of = { "servico", "observacoes" })
+@ToString(of = { "id","servico", "observacoes","pessoa","cidade" })
 
 public class Ordem   {
 
-	
+	private String id;
 	private String servico;
 	private String observacoes;
 	private Pessoa pessoa;
+	private Cidade cidade;
 	
 
-	/*public Ordem(String servico, String observacoes, Pessoa pessoa) {
+	public Ordem(String servico, String observacoes, Pessoa pessoa, Cidade cidade) {
 		this.servico = servico;
 		this.observacoes = observacoes;
 		this.pessoa = pessoa;
+		this.cidade = cidade;
 
 	}
-*/
+
 }
