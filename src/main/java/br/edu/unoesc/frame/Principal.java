@@ -149,13 +149,10 @@ public class Principal extends JFrame {
 				Ordem ordem = new Ordem();
 				ordem.setPessoa(pessoa);
 				ordem.setCidade(cidade);
+				ordem.setFuncionario(funcionario);
 				ordem.setServico(jtfServico.getText());
 				ordem.setObservacoes(jtfObservacoes.getText());
 				
-				
-				
-						
-
 				new OrdemDao().save(ordem);
 				
 				List<Ordem> ordems = new OrdemDao().findOrdems();
