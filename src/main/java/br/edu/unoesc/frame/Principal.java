@@ -304,6 +304,10 @@ public class Principal extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 236, 626, 2);
 		contentPane.add(separator_1);
+		
+		JButton btnPesquisa = new JButton("Pesquisar");
+		btnPesquisa.setBounds(543, 431, 89, 23);
+		contentPane.add(btnPesquisa);
 
 	}
 }
